@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hydro Plantia</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="script.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <div>
+        <div class="eyebrow">AIOT AGRICULTURE</div>
+        <h1>Hydro <span>Plantia</span></h1>
+        <p>Dual-Zone Intelligence Hub</p>
+      </div>
+      <div id="firebaseBadge" class="badge"><i></i> Firebase Connecting...</div>
+    </header>
+
+    <section class="dashboard-grid">
+      <article class="card chart-card temp-card">
+        <h2>TEMPERATURE (°C)</h2>
+        <div class="chart-wrap"><canvas id="temperatureChart"></canvas></div>
+        <div id="temperatureValue" class="big-value">-- °C</div>
+      </article>
+
+      <article class="card chart-card soil-card">
+        <h2>SOIL MOISTURE (%)</h2>
+        <div class="chart-wrap"><canvas id="soilChart"></canvas></div>
+        <div id="soilValue" class="big-value">-- %</div>
+      </article>
+
+      <article class="card security-card">
+        <h2>SECURITY</h2>
+        <div id="motionStatus" class="secure"><i></i> SYSTEM SECURE</div>
+      </article>
+
+      <article class="card small-card">
+        <h2>HUMIDITY</h2>
+        <div id="humidityValue" class="big-value">-- %</div>
+      </article>
+
+      <article class="card small-card">
+        <h2>MOTION EVENTS</h2>
+        <div id="motionCount" class="big-value">--</div>
+      </article>
+
+      <section class="card details-card">
+        <h2>SENSOR DETAILS</h2>
+        <div class="details-grid">
+          <div><span>Temperature</span><strong id="detailTemp">-- °C</strong></div>
+          <div><span>Humidity</span><strong id="detailHumidity">-- %</strong></div>
+          <div><span>Soil Raw ADC</span><strong id="detailSoilRaw">--</strong></div>
+          <div><span>Soil Moisture</span><strong id="detailSoil">-- %</strong></div>
+          <div><span>Motion</span><strong id="detailMotion">--</strong></div>
+          <div><span>DHT Status</span><strong id="detailDht">--</strong></div>
+        </div>
+      </section>
+
+      <aside class="card control-card">
+        <h2>WATER SEPARATOR</h2>
+
+        <div class="zone">
+          <div class="zone-title">SECTION 1 (PIN D1)</div>
+          <div class="buttons">
+            <button id="servo1Open" class="open">OPEN</button>
+            <button id="servo1Close" class="close">CLOSE</button>
+          </div>
+          <div class="status">Status: <b id="servo1Status">--</b></div>
+        </div>
+
+        <div class="zone">
+          <div class="zone-title">SECTION 2 (PIN D2)</div>
+          <div class="buttons">
+            <button id="servo2Open" class="open">OPEN</button>
+            <button id="servo2Close" class="close">CLOSE</button>
+          </div>
+          <div class="status">Status: <b id="servo2Status">--</b></div>
+        </div>
+
+        <div class="bulk-controls">
+          <button id="allOpen" class="open full">DEPLOY ALL ZONES</button>
+          <button id="allClose" class="close full">SECURE ALL ZONES</button>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <span>Hydro Plantia • ESP32 + ESP8266 • Firebase Realtime Database</span>
+      <span id="lastUpdate">Waiting for sensor data...</span>
+    </footer>
+  </main>
+</body>
+</html>
